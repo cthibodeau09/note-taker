@@ -36,7 +36,7 @@ module.exports = (app) => {
     let db = JSON.parse(fs.readFileSync('db/db.json'))
 
     let deleteNotes = db.filter(item => item.id !== req.params.id);
-   
+    // Rewriting note to db.json
     fs.writeFileSync('db/db.json', JSON.stringify(deleteNotes));
     res.json(deleteNotes);
     
